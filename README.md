@@ -1,6 +1,8 @@
 ## W3C GitHub Issue Dashboard
 
-A quick app to keep tabs on github issues used in W3C Repos. Improvements welcome!
+A Web app to keep tabs on github issues used in W3C Repos. Improvements welcome!
+
+See it in action at https://www.w3.org/Tools/gh-dashboard/
 
 ## Configurable views
 You can easily create new views of github issues by creating [HTML files with Mustache templates](templates/), and then adding a reference to said file in the `templateUrls` in [app/scripts/main.js](app/scripts/main.js).
