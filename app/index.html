@@ -5,87 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>W3C Webperf Tracker</title>
+    <title>Github Issue Dashboard</title>
 
     <meta name="mobile-web-app-capable" content="yes">
-    <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
-
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Web Starter Kit">
-    <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
-
-    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="apple-mobile-web-app-title" content="WebRTC Working Group Dashboard">
     <meta name="msapplication-TileColor" content="#3372DF">
 
     <link rel="stylesheet" href="styles/main.css">
   </head>
 
   <body>
+<!-- TODO
+ * selector of repos / WGs via https://labs.w3.org/hatchery/ash-nazg/api/repos and https://labs.w3.org/hatchery/ash-nazg/api/groups
+ * use gh-managed library of functions for sorting
+ * selector of templates (with {{each_filter filterparam sortname}}
+-->
+
     <header class="app-bar promote-layer">
       <div class="app-bar-container">
-        <h1 class="logo"><strong>W3C Webperf Tracker</strong></h1>
+        <h1 class="logo"><strong id="title">Github Issue Dashboard</strong></h1>
       </div>
+      <nav><form action="">
+        <label for="repo">Repo: </label><select id="repo" name="repo"><option>Loading…</option></select> <label for="template">Template: </label><select id="template" name="template"><option>Loading…</option></select><input type="submit" value="View"></form>
+      </nav>
     </header>
-
     <main>
     </main>
 
     <footer>
       <div class="container" style="border-top:1px solid #ccc">
-        <p style="padding-top:1em;padding-bottom:1em"><a href="https://www.twitter.com/igrigorik">@igrigorik</a>, contribute: <a href="https://github.com/w3c/webperf-dashboard">w3c/webperf-dashboard</a></p>
+        <p style="padding-top:1em;padding-bottom:1em">Based on initial work by <a href="https://www.twitter.com/igrigorik">@igrigorik</a>, completed by <a href="https://www.twitter.com/dontcallmedom">@dontcallmedom</a></p>
       </div>
     </footer>
-
-    <script id="entry-template" type="text/x-handlebars-template">
-      {{#if error}}
-        <h3>{{ name }} - <b>Error:</b> {{ error.message }}</h3>
-      {{else}}
-
-        {{#if issues}}
-        <section>
-          <h2>{{ name }}</h2>
-
-          {{#each issues}}
-            <div>
-              <h4>
-                <a href="{{ html_url }}">{{ title }}</a>
-              </h4>
-
-
-              <div style="font-style: italic">
-                {{#if pull_request}}
-                 <strong>pull request</strong> -
-                {{/if}}
-
-                <span class="{{#ifCond comments '>' 0}} color--green {{else}} color--red {{/ifCond}}">
-                  {{comments}} {{pluralize comments "comment" "comments" }}
-                </span> -
-
-                <span>
-                  last update: <i class="{{dateColor updated_at}}">{{dateFormat updated_at}}</i>
-                </span> -
-
-                <span>assignee: {{#if assignee}}
-                  <i class="color--green">{{ assignee.login }}</i>
-                {{else}}
-                  <i class="color--red">none</i>
-                {{/if}}
-                </span>
-
-                {{#if labels}}
-                  - {{# each labels}}
-                      <span style="color: #{{color}}">{{name}}</span>
-                    {{/each}}
-                {{/if}}
-
-              </div>
-            </div>
-          {{/each}}
-        </section>
-        {{/if}}
-      {{/if}}
-    </script>
 
     <!-- build:js scripts/main.min.js -->
     <script src="scripts/handlebars-v2.0.0.js"></script>
