@@ -209,7 +209,6 @@ function getTemplates() {
 
 function getRepos() {
     var baseUrl = "https://labs.w3.org/hatchery";
-    baseUrl = "http://localhost/~dom"
     get(baseUrl + "/ash-nazg/api/groups")
         .then(function(groupJSON) {
             var groupsData = JSON.parse(groupJSON[0]);
