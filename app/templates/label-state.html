@@ -2,6 +2,7 @@
 <html>
 <head><title>Issues sorted by a label-based state</title></head>
 <body>
+  <div id="doc">
   <p>This template uses well-known labels to sort and display the issues associated with a repository.</p>
 
   <p>The labels this template relies on are:</p>
@@ -12,6 +13,7 @@
     <li><code>List discussion needed</code>: before progress on this issue can be made, input or consensus from the mailing list is needed</li>
     <li><code>PR exists</code>: there is (at least) one pull request submitted to solve this issue</li>
   </ul>
+  </div>
     <script id="main" type="text/x-handlebars-template">
       {{#if error}}
         <h3>{{ name }} - <b>Error:</b> {{ error.message }}</h3>

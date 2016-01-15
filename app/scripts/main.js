@@ -196,6 +196,7 @@ function getTemplates() {
                 templates[url].partials[id] = t.innerHTML;
             });
             templates[url].main =  doc.getElementById("main").innerHTML;
+            templates[url].doc =  doc.getElementById("doc").innerHTML;
             templates[url].title = doc.querySelector("title").textContent;
             if (templateCounter === templateUrls.length) {
                 updateNav();
@@ -236,7 +237,7 @@ function render(repoPath, templateUrl) {
         Handlebars.registerPartial(id, templates[templateUrl].partials[id]);
     });
         template = Handlebars.compile(templates[templateUrl].main);
-
+        document.getElementById("doc").innerHTML = templates[templateUrl].doc;
         var specs = [];
         if (repoPath.indexOf(':') !== -1) {
             var id = repoPath.split(':')[1];
