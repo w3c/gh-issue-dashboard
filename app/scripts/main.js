@@ -180,7 +180,7 @@ var groups = {};
 
 function getTemplates() {
     var templateCounter = 0;
-    var templateUrls = ["templates/label-state.html", "templates/activityreport.html"];
+    var templateUrls = ["templates/activityreport.html", "templates/label-state.html"];
 
     templateUrls.forEach(function(url) {
         var req = new XMLHttpRequest();
