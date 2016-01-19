@@ -308,6 +308,10 @@ function updateNav() {
             render(queryParams.repo, queryParams.template);
         }
     }
+
+    if (Object.keys(templates).length && Object.keys(groups).length) {
+        document.getElementById("viewBtn").disabled = false;
+    }
 }
 
 function display(specs) {
