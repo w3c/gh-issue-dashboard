@@ -59,6 +59,10 @@
           {{/groupby}}
           {{/filter}}
 
+          {{#filter issues "!pull_request" "label:PR exists"}}
+          <h3>PR Exists {{> issuelist}}
+          {{/filter}}
+
         </section>
         {{/if}}
       {{/if}}
