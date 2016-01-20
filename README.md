@@ -5,9 +5,9 @@ A Web app to keep tabs on github issues used in W3C Repos. Improvements welcome!
 See it in action at https://www.w3.org/Tools/gh-dashboard/
 
 ## Configurable views
-You can easily create new views of github issues by creating [HTML files with Mustache templates](templates/), and then adding a reference to said file in the `templateUrls` in [app/scripts/main.js](app/scripts/main.js).
+You can easily create new views of github issues by creating [HTML files with Mustache templates](app/templates/), and then adding a reference to said file in the `templateUrls` in [app/scripts/main.js](app/scripts/main.js).
 
-Templates are populated with an `issues` object that contains the list of issues and pull requests obtained from the repo via the [Github API](https://developer.github.com/v3/issues/). You can use the `filter` and `group_by` helpers to select which issues should be displayed where (see the [Issues sorted by a label-based state](templates/label-state.html) as an example).
+Templates are populated with an `issues` object that contains the list of issues and pull requests obtained from the repo via the [Github API](https://developer.github.com/v3/issues/). You can use the `filter` and `group_by` helpers to select which issues should be displayed where (see the [Issues sorted by a label-based state](app/templates/label-state.html) as an example).
 
 Templates are expected to self-document themselves with an element of id `doc` whose content will be inserted at the bottom of the generated views.
 
